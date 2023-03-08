@@ -1,21 +1,41 @@
-import React from "react"
+import React, {useState,useEffect} from "react"
 import { observer } from "mobx-react";
-import Button from "../../Common/Button/Button";
-import Student from "../../Store/User";
-import { IStudent } from "../../Store/User";
+import Student, { IStudent } from "../../Store/User";
+import "./index.scss"
+import QuizContainer from "./QuizContainer/QuizContainer";
+import QuizReady from "./QuizReady/QuizReady";
+import QuizResult from "./QuizResult/QuizResult";
 export interface IQuiz {
     user:IStudent
 }
 
 const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
 
-    //
+    const [isQuizzActive, setIsQuizzActive] = useState(false)
+    const [startTime, setStartTime] = useState(Date.now)
+    const [isQuizzFinished, setIsQuizzFinished] = useState(false)
+    
+    const onStart = () =>{
+        setStartTime(Date.now()); 
+        setIsQuizzActive(true)
+    }
+    const onFinish = (score:number) =>{
+        Student.setScoreAndTime(score,Date.now()-startTime)
+        setIsQuizzFinished(true)
+    }
     return (
     <div>
         <div>this is Quiz</div>
-        <Button name="Go to score" action={()=>Student.changePage("score")} />
+        <div>
+            { !isQuizzActive && !isQuizzFinished && <QuizReady onAction={ async () => onStart() } />}
+        </div>
+        <div>
+            { isQuizzActive && !isQuizzFinished && <QuizContainer onAction={async (e) => onFinish(e) }/> } 
+        </div>
+        <div>
+        { isQuizzFinished &&  <QuizResult /> }
+        </div>
     </div>
     );
-
 }
 export default observer(Quiz);

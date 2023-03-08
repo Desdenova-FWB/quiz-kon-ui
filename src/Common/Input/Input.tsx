@@ -1,4 +1,5 @@
 import React from "react"
+import "./index.scss"
 
 export interface IInput {
     name:string
@@ -7,7 +8,6 @@ export interface IInput {
 }
 
 const Input: React.FunctionComponent<IInput> = ({name,value,action})=> {
-
     
     return (
         <div>

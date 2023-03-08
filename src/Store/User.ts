@@ -1,12 +1,25 @@
 import { makeAutoObservable } from "mobx"
+export interface IBaseUser {
+    name: string;
+    email: string;
+}
+export interface IUser extends IBaseUser{
+    page: string;
+    tel: string;
+    }
+export interface IStudent extends IUser{ 
+    isActive:boolean;
+    changePage:(page:string )=>void;
+}
 
 class UserStore {
-
     name: string;
     email: string;
     tel: string;
     page: string;
     isActive: boolean;
+    private score: number;
+    private time: number;
 
     constructor(){
         this.name="";
@@ -14,6 +27,9 @@ class UserStore {
         this.tel=""
         this.page="home";
         this.isActive=false
+        this.score = 0;
+        this.time = 0;
+
         makeAutoObservable(this)
     }
 
@@ -21,44 +37,27 @@ class UserStore {
         this.name=user.name;
         this.email=user.email;
         this.tel=user.tel
-        
         this.page=user.page;
+        this.isActive=true
     }
-
-    // changeName(name:string){
-    //     console.log(name)
-    //     console.log(this)
-    //     this.name = name;
-    // }
-    // changeEmail(email:string){
-    //     this.email = email;
-    // }
-    // changeTel(tel:string){
-    //     this.tel = tel;
-    // }
-
     changePage (page:string){
-        console.log(`page: ${page}`)
         this.page=page;
-
-        console.log(this)
     }
-
-
+    setStartTime (){
+    }
+    setScoreAndTime(newScore:number, newTime:number){
+        this.score=newScore;
+        this.time=newTime;
+    }
+    getScoreAndTime(){
+        return `Score:"${this.score} in ${this.time} sec!`
+    }
 }
 
 const Student = new UserStore(); 
 export default Student; 
 
-export interface IUser {
-        name: string;
-        email: string;
-        tel: string;
-        page: string;
-    }
-    export interface IStudent extends IUser{ 
-    isActive:boolean;
-    changePage:(page:string )=>void;
-}
+
+
 
 
