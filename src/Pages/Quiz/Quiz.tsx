@@ -20,7 +20,7 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
         setIsQuizzActive(true)
     }
     const onFinish = (score:number) =>{
-        Student.setScoreAndTime(score,Date.now()-startTime)
+        Student.setScoreAndTime(score,(Date.now()-startTime)/1000)
         setIsQuizzFinished(true)
     }
     return (

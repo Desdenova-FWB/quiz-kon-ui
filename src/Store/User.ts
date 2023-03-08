@@ -11,7 +11,7 @@ export interface IStudent extends IUser{
     isActive:boolean;
     changePage:(page:string )=>void;
 }
-
+ 
 class UserStore {
     name: string;
     email: string;

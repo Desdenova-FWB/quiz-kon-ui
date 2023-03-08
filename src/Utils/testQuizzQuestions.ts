@@ -19,12 +19,11 @@ export const testQuizzQuestion = [
         ]
     },
     {
-        
         ID:2,
         quiestion: "question 2",
         answers: [
-            { ID:4,answer:"answer.1",isCorrect:true},
-            { ID:5,answer:"answer.2",isCorrect:false},
+            { ID:4,answer:"answer.1",isCorrect:false},
+            { ID:5,answer:"answer.2",isCorrect:true},
             { ID:6,answer:"answer.3",isCorrect:false}
         ]
     },
@@ -32,9 +31,9 @@ export const testQuizzQuestion = [
         ID:3,
         quiestion: "question 3",
         answers: [
-            { ID:7,answer:"answer.1",isCorrect:true},
+            { ID:7,answer:"answer.1",isCorrect:false},
             { ID:8,answer:"answer.2",isCorrect:false},
-            { ID:9,answer:"answer.3",isCorrect:false}
+            { ID:9,answer:"answer.3",isCorrect:true}
         ]
     }
 ]
