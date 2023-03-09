@@ -14,7 +14,7 @@ return (
         <thead>
             <ScoreTableHeader/>
         </thead>
-        <tbody>
+        <tbody> 
             {
                 results.map(item => {
                     return <ScoreTableItem 
