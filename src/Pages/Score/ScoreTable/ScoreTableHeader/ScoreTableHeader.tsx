@@ -16,7 +16,7 @@ const ScoreTableHeader: React.FunctionComponent = () =>{
                 Rezltat
             </th>
             <th>
-                Vreme
+                Vreme [s]
             </th>
         </tr>
     )

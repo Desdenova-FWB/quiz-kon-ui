@@ -8,11 +8,14 @@ interface IQuizzReady {
 const QuizReady : React.FunctionComponent<IQuizzReady> = ({onAction}) =>{
 
     return(
-        <div>
-            <p>Are You READY???</p>
-            <Button name="READY" action={onAction}/>
-            <Button name="Go To Score" action={()=>Student.changePage("score")}/>
-        </div>
+        <>
+            <h3 className="mb-3">Are You READY???</h3>
+
+            <div className="d-grid gap-2 mt-5">
+                <Button name="READY" action={onAction} classes="btn btn-primary"/>
+                <Button name="Go To Score" action={()=>Student.changePage("score")} classes="btn btn-primary"/>
+            </div>
+        </>
     )
 }
 export default QuizReady

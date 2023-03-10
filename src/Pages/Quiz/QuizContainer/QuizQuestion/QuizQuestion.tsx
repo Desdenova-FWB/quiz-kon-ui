@@ -7,9 +7,7 @@ export interface IQuizQuestion{
 
 const QuizQuestion:React.FunctionComponent<IQuizQuestion> = ({queston}) =>{
 return(
-    <div>
-        {queston}
-    </div>
+    <h6>{queston}</h6>
 )
 }
 export default QuizQuestion;

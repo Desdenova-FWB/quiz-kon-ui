@@ -14,9 +14,7 @@ const QuizAnswer: React.FunctionComponent<IQuizAnser> = ({
   onAction,
 }) => {
   return (
-    <div>
-      <Button name={answer} action={() => onAction(isCorrect)} />
-    </div>
+    <Button name={answer} action={() => onAction(isCorrect)} classes="btn btn-primary"/>
   );
 };
 export default QuizAnswer;

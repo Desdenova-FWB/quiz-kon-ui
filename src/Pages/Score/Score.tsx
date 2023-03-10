@@ -12,15 +12,19 @@ export interface IScore {
 
 const Score: React.FunctionComponent<IScore> = ({ user }) => {
   return (
-    <div>
-      <p>Score:</p>
-      <ScoreTable results={rezultList} />
+    <>
+      <h1 className="mt-3 mb-5">Score</h1>
 
-      <Button
-        name="Try Quiz"
-        action={() => user.changePage(user.isActive ? "quiz" : "user-info")}
-      />
-    </div>
+      <ScoreTable results={rezultList} classes="mt-5" />
+
+      <div className="d-grid gap-2">
+        <Button
+          name="Try Quiz"
+          action={() => user.changePage(user.isActive ? "quiz" : "user-info")}
+          classes="btn btn-primary"
+        />
+      </div>
+    </>
   );
 };
 export default Score;

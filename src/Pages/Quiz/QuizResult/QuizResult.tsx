@@ -5,8 +5,11 @@ import Student from "../../../Store/User";
 const QuizResult : React.FunctionComponent = () =>{
     return(
         <div>
-            <p> {Student.getScoreAndTime()} </p>
-            <Button name="Go to score" action={()=>Student.changePage("score")} /> 
+            <h6>{Student.getScoreAndTime()}</h6>
+
+            <div className="d-grid gap-2 mt-5">
+                <Button name="Go to score" action={()=>Student.changePage("score")} classes="btn btn-primary"/> 
+            </div>
         </div>
     )
 }

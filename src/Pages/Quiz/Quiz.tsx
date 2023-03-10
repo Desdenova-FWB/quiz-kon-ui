@@ -24,8 +24,8 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
         setIsQuizzFinished(true)
     }
     return (
-    <div>
-        <div>this is Quiz</div>
+    <>
+        <h1 className="mb-5">Sample Quiz</h1>
         <div>
             { !isQuizzActive && !isQuizzFinished && <QuizReady onAction={ async () => onStart() } />}
         </div>
@@ -35,7 +35,7 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
         <div>
         { isQuizzFinished &&  <QuizResult /> }
         </div>
-    </div>
+    </>
     );
 }
 export default observer(Quiz);

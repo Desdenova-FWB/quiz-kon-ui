@@ -31,20 +31,23 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
   };
 
   return (
-    <div>
-      <QuizQuestion queston={currentQuestion.quiestion} />
-      <div>
-        {currentQuestion.answers.map((answer) => {
-          return (
-            <QuizAnswer
-              key={answer.ID}
-              ID={answer.ID}
-              answer={answer.answer}
-              isCorrect={answer.isCorrect}
-              onAction={async (e: boolean) => action(e)}
-            />
-          );
-        })}
+    <div className={[currentQuestion.type, 'card quiz-question-card'].join(' ')}>
+      <div className="question-logo"></div>
+      <div className="card-body">
+        <QuizQuestion queston={currentQuestion.quiestion} />
+        <div className="d-grid gap-2 mt-5">
+          {currentQuestion.answers.map((answer) => {
+            return (
+              <QuizAnswer
+                key={answer.ID}
+                ID={answer.ID}
+                answer={answer.answer}
+                isCorrect={answer.isCorrect}
+                onAction={async (e: boolean) => action(e)}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
