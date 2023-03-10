@@ -6,17 +6,13 @@ export interface IButton {
     isHidden?:boolean
     isActive?:boolean
     action:()=>void
+    classes?:string
 }
 
-const Button: React.FunctionComponent<IButton> = ({name,isHidden = false,isActive=true,action})=> {
+const Button: React.FunctionComponent<IButton> = ({name,isHidden = false,isActive=true,action,classes=""})=> {
 
-    let classes = [].join(" ")
     return (
-        <div className={classes}>
-           <button onClick={()=>action()} disabled={!isActive}>
-                {name}
-           </button>
-        </div>
+        <button type="button" className={classes} onClick={()=>action()} disabled={!isActive}>{name}</button>
     )
 }
 export default Button

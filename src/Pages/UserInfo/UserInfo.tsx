@@ -12,7 +12,7 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
   const [tel, setTel] = useState("");
   const [canSubmit, setCanSubmit] = useState(false);
 
-  const submint = () => {
+  const submit = () => {
     console.log("point");
     Student.editUser({ name: name, email: email, tel: tel, page: "quiz" });
   };
@@ -21,17 +21,23 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
     else setCanSubmit(false);
   }, [name, email, tel, canSubmit]);
   return (
-    <div>
-      <Input name="Name" value={name} action={setName} />
-      <Input name="Email" value={email} action={setEmail} />
-      <Input name="Telefon" value={tel} action={setTel} />
+    <>
+      <h1 className="mt-3 mb-5">User info</h1>
 
-      <Button
-        isActive={canSubmit}
-        name="start quizz"
-        action={() => submint()}
-      />
-    </div>
+      <form className="mt-5">
+        <Input name="Name" value={name} action={setName} />
+        <Input name="Email" value={email} action={setEmail} />
+        <Input name="Telefon" value={tel} action={setTel} />
+      </form>
+
+      <div className="d-grid gap-2">
+        <Button
+          isActive={canSubmit}
+          name="Start quiz"
+          action={() => submit()}
+          classes="btn btn-primary"></Button>
+      </div>
+    </>
   );
 };
 export default observer(UserInfo);

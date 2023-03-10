@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom/client';
 import Application from './Application';
 import reportWebVitals from './reportWebVitals';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Application/>
+    <div className="container text-center">
+      <div className="row justify-content-md-center">
+        <div className="col-lg-6">
+          <Application/>
+        </div>
+      </div>
+    </div>
   </React.StrictMode>
 );
 
