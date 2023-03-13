@@ -35,7 +35,7 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
       <div className="question-logo"></div>
       <div className="card-body">
         <QuizQuestion queston={currentQuestion.quiestion} />
-        <div className="d-grid gap-2 mt-5">
+        <div className="d-grid gap-2 mt-5 mb-5">
           {currentQuestion.answers.map((answer) => {
             return (
               <QuizAnswer
