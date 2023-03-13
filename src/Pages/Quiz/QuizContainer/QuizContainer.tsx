@@ -30,8 +30,14 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
     }
   };
 
+  const getRandomType = () => {
+    const types = ['bison', 'eagle', 'turtle', 'bear'];
+
+    return types[Math.floor(Math.random() * types.length)];
+  };
+
   return (
-    <div className={[currentQuestion.type, 'card quiz-question-card'].join(' ')}>
+    <div className={[getRandomType(), 'card quiz-question-card'].join(' ')}>
       <div className="question-logo"></div>
       <div className="card-body">
         <QuizQuestion queston={currentQuestion.quiestion} />

@@ -1,8 +1,7 @@
 export interface IquizzQuestion{
     ID:number
     quiestion: string
-    answers: IAnswer[],
-    type: string
+    answers: IAnswer[]
 }
 export interface IAnswer {
     ID:number
@@ -17,8 +16,7 @@ export const testQuizzQuestion = [
             { ID:1,answer:"answer.1",isCorrect:true},
             { ID:2,answer:"answer.2",isCorrect:false},
             { ID:3,answer:"answer.3",isCorrect:false},
-        ],
-        type: 'bison'
+        ]
     },
     {
         ID:2,
@@ -27,8 +25,7 @@ export const testQuizzQuestion = [
             { ID:4,answer:"answer.1",isCorrect:false},
             { ID:5,answer:"answer.2",isCorrect:true},
             { ID:6,answer:"answer.3",isCorrect:false}
-        ],
-        type: 'eagle'
+        ]
     },
     {
         ID:3,
@@ -37,8 +34,7 @@ export const testQuizzQuestion = [
             { ID:7,answer:"answer.1",isCorrect:false},
             { ID:8,answer:"answer.2",isCorrect:false},
             { ID:9,answer:"answer.3",isCorrect:true}
-        ],
-        type: 'bear'
+        ]
     },
     {
         ID:3,
@@ -47,7 +43,6 @@ export const testQuizzQuestion = [
             { ID:7,answer:"answer.1",isCorrect:false},
             { ID:8,answer:"answer.2",isCorrect:false},
             { ID:9,answer:"answer.3",isCorrect:true}
-        ],
-        type: 'turtle'
+        ]
     }
 ]
