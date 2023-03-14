@@ -3,7 +3,7 @@ import "./index.scss"
 import { IBaseUser } from "../../../../Store/User";
 
 export interface IScoreTableItem extends IBaseUser {
-    ID: number
+    __id: number
     time :number
     score: number
 }

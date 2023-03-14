@@ -1,28 +1,45 @@
-import React, {useState,useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import { observer } from "mobx-react";
 import Student, { IStudent } from "../../Store/User";
 import "./index.scss"
 import QuizContainer from "./QuizContainer/QuizContainer";
 import QuizReady from "./QuizReady/QuizReady";
 import QuizResult from "./QuizResult/QuizResult";
+import axios from "axios";
 export interface IQuiz {
     user:IStudent
 }
 
 const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
 
+    const [qestions, setQuestions] = useState([])
     const [isQuizzActive, setIsQuizzActive] = useState(false)
     const [startTime, setStartTime] = useState(Date.now)
     const [isQuizzFinished, setIsQuizzFinished] = useState(false)
-    
+
     const onStart = () =>{
         setStartTime(Date.now()); 
         setIsQuizzActive(true)
     }
     const onFinish = (score:number) =>{
         Student.setScoreAndTime(score,(Date.now()-startTime)/1000)
-        setIsQuizzFinished(true)
+        if (!Student.isSubmitted){
+            axios.post("http://localhost:9090/userResult/create/",{...Student}).then(()=>{
+                setIsQuizzFinished(true);
+                Student.toggleIsSubmitted();
+            })
+        } else{
+            setIsQuizzFinished(true);
+        }
     }
+    useEffect (()=>{
+        axios.post("http://localhost:9090/question/getRandomQuestions/", {numberOfQuestions:7})
+        .then((response) => {
+          setQuestions(response.data.questions);
+          });
+        
+      },[])  
+
     return (
     <>
         <h1 className="mb-5">Sample Quiz</h1>
@@ -30,7 +47,7 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
             { !isQuizzActive && !isQuizzFinished && <QuizReady onAction={ async () => onStart() } />}
         </div>
         <div>
-            { isQuizzActive && !isQuizzFinished && <QuizContainer onAction={async (e) => onFinish(e) }/> } 
+            { isQuizzActive && !isQuizzFinished && <QuizContainer  questions={qestions} onAction={async (e) => onFinish(e) }/> } 
         </div>
         <div>
         { isQuizzFinished &&  <QuizResult /> }

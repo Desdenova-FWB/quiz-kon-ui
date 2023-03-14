@@ -1,48 +1,48 @@
 export interface IquizzQuestion{
-    ID:number
-    quiestion: string
+    __id:string
+    questionText: string
     answers: IAnswer[]
 }
 export interface IAnswer {
-    ID:number
-    answer:string
+    __id:string
+    answerText:string
     isCorrect:boolean
 }
-export const testQuizzQuestion = [
+export const testQuizzQuestion : IquizzQuestion[]= [
     {
-        ID:1,
-        quiestion: "question 1",
+        __id:"1",
+        questionText: "question 1",
         answers: [
-            { ID:1,answer:"answer.1",isCorrect:true},
-            { ID:2,answer:"answer.2",isCorrect:false},
-            { ID:3,answer:"answer.3",isCorrect:false},
+            { __id:"1",answerText:"answerText.1",isCorrect:true},
+            { __id:"2",answerText:"answerText.2",isCorrect:false},
+            { __id:"3",answerText:"answerText.3",isCorrect:false},
         ]
     },
     {
-        ID:2,
-        quiestion: "question 2",
+        __id:"2",
+        questionText: "question 2",
         answers: [
-            { ID:4,answer:"answer.1",isCorrect:false},
-            { ID:5,answer:"answer.2",isCorrect:true},
-            { ID:6,answer:"answer.3",isCorrect:false}
+            { __id:"4",answerText:"answerText.1",isCorrect:false},
+            { __id:"5",answerText:"answerText.2",isCorrect:true},
+            { __id:"6",answerText:"answerText.3",isCorrect:false}
         ]
     },
     {
-        ID:3,
-        quiestion: "question 3",
+        __id:"3",
+        questionText: "question 3",
         answers: [
-            { ID:7,answer:"answer.1",isCorrect:false},
-            { ID:8,answer:"answer.2",isCorrect:false},
-            { ID:9,answer:"answer.3",isCorrect:true}
+            { __id:"7",answerText:"answerText.1",isCorrect:false},
+            { __id:"8",answerText:"answerText.2",isCorrect:false},
+            { __id:"9",answerText:"answerText.3",isCorrect:true}
         ]
     },
     {
-        ID:3,
-        quiestion: "question 3",
+        __id:"3",
+        questionText: "question 3",
         answers: [
-            { ID:7,answer:"answer.1",isCorrect:false},
-            { ID:8,answer:"answer.2",isCorrect:false},
-            { ID:9,answer:"answer.3",isCorrect:true}
+            { __id:"7",answerText:"answerText.1",isCorrect:false},
+            { __id:"8",answerText:"answerText.2",isCorrect:false},
+            { __id:"9",answerText:"answerText.3",isCorrect:true}
         ]
     }
 ]

@@ -1,5 +1,5 @@
-import userEvent from "@testing-library/user-event";
-import React from "react";
+import React, {useState, useEffect } from "react";
+import axios from "axios"
 import Button from "../../Common/Button/Button";
 import { IStudent } from "../../Store/User";
 import { rezultList } from "../../Utils/testRezults";
@@ -11,16 +11,29 @@ export interface IScore {
 }
 
 const Score: React.FunctionComponent<IScore> = ({ user }) => {
+
+const [result, setResult]=  useState(rezultList);
+const update = ()=>{
+  axios.post("http://localhost:9090/userResult/getSortedUserResults/",{topResults:10}).then((response)=>{
+      setResult(response.data.userResults)
+  })
+}
+  useEffect(()=>update,[])
+
   return (
     <>
       <h1 className="mt-3 mb-5">Score</h1>
 
-      <ScoreTable results={rezultList} classes="mt-5" />
-
+      <ScoreTable results={result} classes="mt-5" />
       <div className="d-grid gap-2">
+      <Button
+          name="Refresh results"
+          action={update}
+          classes="btn btn-primary"
+        />
         <Button
           name="Try Quiz"
-          action={() => user.changePage(user.isActive ? "quiz" : "user-info")}
+          action={() =>  user.changePage(user.isActive ? "quiz" : "user-info")}
           classes="btn btn-primary"
         />
       </div>

@@ -9,6 +9,7 @@ export interface IUser extends IBaseUser{
     }
 export interface IStudent extends IUser{ 
     isActive:boolean;
+    isSubmitted:boolean;
     changePage:(page:string )=>void;
 }
  
@@ -18,6 +19,7 @@ class UserStore {
     tel: string;
     page: string;
     isActive: boolean;
+    isSubmitted: boolean;
     private score: number;
     private time: number;
 
@@ -29,6 +31,7 @@ class UserStore {
         this.isActive=false
         this.score = 0;
         this.time = 0;
+        this.isSubmitted= false;
 
         makeAutoObservable(this)
     }
@@ -39,6 +42,7 @@ class UserStore {
         this.tel=user.tel
         this.page=user.page;
         this.isActive=true
+        this.isSubmitted = false
     }
     changePage (page:string){
         this.page=page;
@@ -51,6 +55,9 @@ class UserStore {
     }
     getScoreAndTime(){
         return `Score:"${this.score} in ${this.time} sec!`
+    }
+    toggleIsSubmitted(){
+        this.isSubmitted = !this.isSubmitted
     }
 }
 

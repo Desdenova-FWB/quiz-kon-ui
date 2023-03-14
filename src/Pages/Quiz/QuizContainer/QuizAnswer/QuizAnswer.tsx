@@ -8,13 +8,12 @@ export interface IQuizAnser extends IAnswer {
 }
 
 const QuizAnswer: React.FunctionComponent<IQuizAnser> = ({
-  answer,
+  answerText,
   isCorrect,
-  ID,
   onAction,
 }) => {
   return (
-    <Button name={answer} action={() => onAction(isCorrect)} classes="btn btn-primary"/>
+    <Button name={answerText} action={() => onAction(isCorrect)} classes="btn btn-primary"/>
   );
 };
 export default QuizAnswer;

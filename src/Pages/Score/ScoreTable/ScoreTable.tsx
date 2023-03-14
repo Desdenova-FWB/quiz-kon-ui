@@ -21,8 +21,8 @@ const ScoreTable : React.FunctionComponent<IScoreTable> = ({results, classes}) =
                     {
                         results.map(item => {
                             return <ScoreTableItem 
-                            key={item.ID}
-                            ID={item.ID}
+                            key={item.__id}
+                            __id={item.__id}
                             name={item.name} 
                             email={item.email} 
                             score={item.score} 
