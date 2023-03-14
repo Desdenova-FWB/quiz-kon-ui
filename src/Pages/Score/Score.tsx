@@ -5,6 +5,7 @@ import { IStudent } from "../../Store/User";
 import { rezultList } from "../../Utils/testRezults";
 import "./index.scss";
 import ScoreTable from "./ScoreTable/ScoreTable";
+import _Global from "../../Utils/globalProps";
 
 export interface IScore {
   user: IStudent;
@@ -14,7 +15,7 @@ const Score: React.FunctionComponent<IScore> = ({ user }) => {
 
 const [result, setResult]=  useState(rezultList);
 const update = ()=>{
-  axios.post("http://localhost:9090/userResult/getSortedUserResults/",{topResults:10}).then((response)=>{
+  axios.post("http://localhost:9090/userResult/getSortedUserResults/",{topResults:_Global.TOP_RESULTS}).then((response)=>{
       setResult(response.data.userResults)
   })
 }

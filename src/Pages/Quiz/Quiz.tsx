@@ -6,6 +6,7 @@ import QuizContainer from "./QuizContainer/QuizContainer";
 import QuizReady from "./QuizReady/QuizReady";
 import QuizResult from "./QuizResult/QuizResult";
 import axios from "axios";
+import _Global from "../../Utils/globalProps";
 export interface IQuiz {
     user:IStudent
 }
@@ -33,7 +34,7 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
         }
     }
     useEffect (()=>{
-        axios.post("http://localhost:9090/question/getRandomQuestions/", {numberOfQuestions:7})
+        axios.post("http://localhost:9090/question/getRandomQuestions/", {numberOfQuestions:_Global.NUMBER_OF_QUESTIONS})
         .then((response) => {
           setQuestions(response.data.questions);
           });
