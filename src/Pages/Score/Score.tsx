@@ -15,7 +15,7 @@ const Score: React.FunctionComponent<IScore> = ({ user }) => {
 
 const [result, setResult]=  useState(rezultList);
 const update = ()=>{
-  axios.post("http://localhost:9090/userResult/getSortedUserResults/",{topResults:_Global.TOP_RESULTS}).then((response)=>{
+  axios.post(`${_Global.BE_URL}/userResult/getSortedUserResults/`,{topResults:_Global.TOP_RESULTS}).then((response)=>{
       setResult(response.data.userResults)
   })
 }

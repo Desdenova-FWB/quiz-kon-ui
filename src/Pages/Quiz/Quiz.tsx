@@ -25,7 +25,7 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
     const onFinish = (score:number) =>{
         Student.setScoreAndTime(score,(Date.now()-startTime)/1000)
         if (!Student.isSubmitted){
-            axios.post("http://localhost:9090/userResult/create/",{...Student}).then(()=>{
+            axios.post(`${_Global.BE_URL}/userResult/create/`,{...Student}).then(()=>{
                 setIsQuizzFinished(true);
                 Student.toggleIsSubmitted();
             })
@@ -34,7 +34,7 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
         }
     }
     useEffect (()=>{
-        axios.post("http://localhost:9090/question/getRandomQuestions/", {numberOfQuestions:_Global.NUMBER_OF_QUESTIONS})
+        axios.post(`${_Global.BE_URL}/question/getRandomQuestions/`, {numberOfQuestions:_Global.NUMBER_OF_QUESTIONS})
         .then((response) => {
           setQuestions(response.data.questions);
           });
