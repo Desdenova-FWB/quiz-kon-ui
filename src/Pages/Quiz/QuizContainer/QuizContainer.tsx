@@ -3,15 +3,20 @@ import QuizQuestion from "./QuizQuestion/QuizQuestion";
 import "./index.scss";
 import { IquizzQuestion, } from "../../../Utils/testQuizzQuestions";
 import QuizAnswer from "./QuizAnswer/QuizAnswer";
+import QuizHeader from "./QuizHeader/QuizHeader";
+import Student from "../../../Store/User";
+import { observer } from "mobx-react";
 
 interface IQuizContainer {
   onAction: (points: number) => {};
   questions: IquizzQuestion[]
+  startTime: number
 }
 
 const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
   onAction,
-  questions
+  questions,
+  startTime
 }) => {
   const [answerCounter, setAnswerCounter] = useState(0);
   const [questionCounter, setquestionCounter] = useState(0);
@@ -28,6 +33,7 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
       }
       setCurrentQuestion(questions[questionCounter + 1]);
       setquestionCounter(questionCounter + 1);
+      Student.increseQuestionCounter();
     }
   };
 
@@ -40,6 +46,7 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
 
   return (
     <div className={[getRandomType(), 'card quiz-question-card'].join(' ')}>
+      <QuizHeader startTime={startTime} questionCounter={questionCounter+1} amountOfQuestions={questions.length} />
       <div className="question-logo"></div>
       <div className="card-body">
         <QuizQuestion questionText={currentQuestion.questionText} />
@@ -60,4 +67,4 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
     </div>
   );
 };
-export default QuizContainer;
+export default observer(QuizContainer);

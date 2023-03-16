@@ -20,6 +20,7 @@ class UserStore {
     page: string;
     isActive: boolean;
     isSubmitted: boolean;
+    questionCounter:number;
     private score: number;
     private time: number;
 
@@ -29,9 +30,11 @@ class UserStore {
         this.tel=""
         this.page="home";
         this.isActive=false
+        this.questionCounter=1;
         this.score = 0;
         this.time = 0;
         this.isSubmitted= false;
+        
 
         makeAutoObservable(this)
     }
@@ -47,7 +50,8 @@ class UserStore {
     changePage (page:string){
         this.page=page;
     }
-    setStartTime (){
+    increseQuestionCounter (){
+        this.questionCounter= ++this.questionCounter;
     }
     setScoreAndTime(newScore:number, newTime:number){
         this.score=newScore;

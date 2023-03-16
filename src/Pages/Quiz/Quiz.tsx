@@ -36,6 +36,7 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
     useEffect (()=>{
         axios.post(`${_Global.BE_URL}/question/getRandomQuestions/`, {numberOfQuestions:_Global.NUMBER_OF_QUESTIONS})
         .then((response) => {
+            console.log("--------",response.data.questions.length)
           setQuestions(response.data.questions);
           });
         
@@ -48,7 +49,7 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
             { !isQuizzActive && !isQuizzFinished && <QuizReady onAction={ async () => onStart() } />}
         </div>
         <div>
-            { isQuizzActive && !isQuizzFinished && <QuizContainer  questions={qestions} onAction={async (e) => onFinish(e) }/> } 
+            { isQuizzActive && !isQuizzFinished && <QuizContainer  questions={qestions} startTime={startTime} onAction={async (e) => onFinish(e) }/> } 
         </div>
         <div>
         { isQuizzFinished &&  <QuizResult /> }
