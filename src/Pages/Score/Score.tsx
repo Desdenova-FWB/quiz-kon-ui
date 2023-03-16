@@ -14,12 +14,9 @@ export interface IScore {
 const Score: React.FunctionComponent<IScore> = ({ user }) => {
 
 const [result, setResult]=  useState(rezultList);
-const [isLoaded, setIsLoaded] = useState(false)
 const update = ()=>{
-  setIsLoaded(false)
   axios.post(`${_Global.BE_URL}/userResult/getSortedUserResults/`,{topResults:_Global.TOP_RESULTS}).then((response)=>{
       setResult(response.data.userResults)
-      setIsLoaded(true)
   })
 }
   useEffect(()=>update(),[])
@@ -27,11 +24,7 @@ const update = ()=>{
   return (
     <>
       <h1 className="mt-3 mb-5">Score</h1>
-
-       {
-        isLoaded && <ScoreTable results={result} classes="mt-5" />
-        
-       }
+      <ScoreTable results={result} classes="mt-5" />
       <div className="d-grid gap-2">
       <Button
           name="Refresh results"
