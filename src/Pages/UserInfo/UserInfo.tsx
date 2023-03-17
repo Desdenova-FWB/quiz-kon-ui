@@ -1,8 +1,10 @@
+import axios from "axios";
 import { observer } from "mobx-react";
 import React, { useEffect, useState } from "react";
 import Button from "../../Common/Button/Button";
 import Input from "../../Common/Input/Input";
 import Student from "../../Store/User";
+import _Global from "../../Utils/globalProps";
 
 export interface IUserInfo {}
 
@@ -14,7 +16,10 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
 
   const submit = () => {
     console.log("point");
-    Student.editUser({ name: name, email: email, tel: tel, page: "quiz" });
+    axios.post(`${_Global.BE_URL}/userResult/create/`,{ name: name, email: email, tel: tel}).then((res)=>{
+      Student.editUser({ ...res.data.userResult, page: "quiz" });
+  })
+
   };
   useEffect(() => {
     if (name !== "" && email !== "" && tel !== "") setCanSubmit(true);

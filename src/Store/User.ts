@@ -4,6 +4,7 @@ export interface IBaseUser {
     email: string;
 }
 export interface IUser extends IBaseUser{
+    _id:string
     page: string;
     tel: string;
     }
@@ -14,6 +15,7 @@ export interface IStudent extends IUser{
 }
  
 class UserStore {
+    _id:string
     name: string;
     email: string;
     tel: string;
@@ -25,6 +27,7 @@ class UserStore {
     private time: number;
 
     constructor(){
+        this._id=""
         this.name="";
         this.email="";
         this.tel=""
@@ -39,7 +42,12 @@ class UserStore {
         makeAutoObservable(this)
     }
 
+    // setId(id:string){
+    //     this.__id=id;
+    // }
     editUser (user:IUser){
+        
+        this._id=user._id;
         this.name=user.name;
         this.email=user.email;
         this.tel=user.tel
