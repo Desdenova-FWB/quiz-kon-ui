@@ -69,7 +69,7 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
         { nameError && <div className="invalid-feedback mb-1" >Moraš uneti ime i prezime.</div> }
 
         <Input name="E-mail" value={email} type="email" action={setEmail} />
-        { emailError && <div className="invalid-feedback mb-1">Moraš uneti validan email.</div> }
+        { emailError && <div className="invalid-feedback mb-1">Moraš uneti validan e-mail.</div> }
 
         <Input name="Kontakt telefon" type="number" value={tel} action={setTel} />
       </form>
