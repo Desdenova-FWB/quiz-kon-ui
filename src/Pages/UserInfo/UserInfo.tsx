@@ -6,6 +6,8 @@ import Input from "../../Common/Input/Input";
 import Student from "../../Store/User";
 import _Global from "../../Utils/globalProps";
 
+import tiacLogo from "../../assets/img/logo/tiac_white_640_hor.png";
+
 export interface IUserInfo {}
 
 const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
@@ -27,20 +29,24 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
   }, [name, email, tel, canSubmit]);
   return (
     <>
-      <h1 className="mt-3 mb-5">User info</h1>
+      <div className="small-logo">
+        <img src={tiacLogo}></img>
+      </div>
+
+      <p className="mb-5 text-white">Upiši svoje podatke kako bi započeo kviz.</p>
 
       <form className="mt-5">
-        <Input name="Name" value={name} action={setName} />
-        <Input name="Email" value={email} action={setEmail} />
-        <Input name="Telefon" value={tel} action={setTel} />
+        <Input name="Ime i prezime" value={name} type="text" action={setName} />
+        <Input name="E-mail" value={email} type="email" action={setEmail} />
+        <Input name="Kontakt telefon" type="number" value={tel} action={setTel} />
       </form>
 
       <div className="d-grid gap-2">
         <Button
           isActive={canSubmit}
-          name="Start quiz"
+          name="Kviz"
           action={() => submit()}
-          classes="btn btn-primary"></Button>
+          classes="btn btn-light"></Button>
       </div>
     </>
   );

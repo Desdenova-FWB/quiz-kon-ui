@@ -1,3 +1,7 @@
+body {
+  color: #231F20;
+}
+
 #footer {
   text-align: center;
   background-color: #fff;
@@ -25,6 +29,28 @@
   height: calc(100vh - 48px);
 }
 
+.form-control:focus {
+  border-color: #951414;
+  box-shadow: 0 0 0 0.25rem rgba(149, 20, 20, 0.25)
+}
+
+.small-logo {
+  width: 90px;
+  height: 90px;
+  margin-top: 10px;
+  margin-left: -5px;
+
+  & img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.outline {
+  color: #951414;
+}
+
+
 //#region Buttons //
 
 .btn-light {
@@ -34,6 +60,14 @@
   text-transform: uppercase;
   width: 70%;
   margin-left: 15%;
+  border-radius: 10px;
+  font-size: 1.3rem;
+
+  &:disabled,
+  &.disabled,
+  &:active {
+    color: #951414 !important;
+  }
 }
 
 //#endregion //
