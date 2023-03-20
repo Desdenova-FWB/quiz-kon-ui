@@ -1,3 +1,48 @@
+
+@keyframes slideInBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .float-start:last-child {
   margin-left: 1rem;
+}
+
+.title {
+  color: #FFFFFF;
+  font-size: 30pt;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.content {
+  animation: 1.5s ease-in 0s 1 slideInBottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.button-color-1 {
+  background-color: rgb(23, 23, 23,0.7) !important;
+  color: rgb(224, 224, 224, 1) !important;
+  font-family: 'Lato', sans-serif !important;
+  padding: 10px !important;
+}
+
+.button-color-2 {
+  background-color: rgb(224, 224, 224, 0.7) !important;
+  color: rgb(23, 23, 23,1)!important;
+  font-family: 'Lato', sans-serif !important;
 }

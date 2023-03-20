@@ -6,6 +6,9 @@ import { rezultList } from "../../Utils/testRezults";
 import "./index.scss";
 import ScoreTable from "./ScoreTable/ScoreTable";
 import _Global from "../../Utils/globalProps";
+import { Table } from "@mui/material";
+import MUITable from "./ScoreTable/MUITable";
+import { User } from "../../Models/User";
 
 export interface IScore {
   user: IStudent;
@@ -13,7 +16,7 @@ export interface IScore {
 
 const Score: React.FunctionComponent<IScore> = ({ user }) => {
 
-const [result, setResult]=  useState(rezultList);
+const [result, setResult]=useState(new Array<User>());
 const update = ()=>{
   axios.post(`${_Global.BE_URL}/userResult/getSortedUserResults/`,{topResults:_Global.TOP_RESULTS}).then((response)=>{
       setResult(response.data.userResults)
@@ -22,9 +25,15 @@ const update = ()=>{
   useEffect(()=>update(),[])
 
   return (
-    <>
-      <h1 className="mt-3 mb-5">Score</h1>
-      <ScoreTable results={result} classes="mt-5" />
+    <div className="results">
+      <div className="title-div">
+        <h1 className="title">Rezultati</h1>
+      </div>
+      <div className="table-div">
+        <MUITable content={result}/>
+      </div>
+
+      {/* <ScoreTable results={result} classes="mt-5" />
       <div className="d-grid gap-2">
       <Button
           name="Refresh results"
@@ -36,8 +45,8 @@ const update = ()=>{
           action={() =>  user.changePage(user.isActive ? "quiz" : "user-info")}
           classes="btn btn-primary"
         />
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 };
 export default Score;

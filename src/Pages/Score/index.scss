@@ -1,4 +1,27 @@
 
-.hideButton{
-    display: none;
+.title {
+    color: #FFFFFF;
+    font-size: 30pt;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.title-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.results {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.table-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
