@@ -3,6 +3,8 @@ import { observer } from "mobx-react";
 import { IStudent } from "../../Store/User";
 import Button from "./../../Common/Button/Button";
 
+import tiacLogo from "./../../assets/img/logo/tiac_white_640_hor.png";
+
 import './index.scss';
 
 export interface IHomePage {
@@ -12,11 +14,13 @@ export interface IHomePage {
 const HomePage: React.FunctionComponent<IHomePage> = ({ user }) => {
   return (
     <>
-      <h1 className="mt-3 mb-5">Wellcome</h1>
+      <div id="logo">
+        <img src={tiacLogo}></img>
+      </div>
 
-      <div className="d-grid gap-2 mt-5">
-        <Button name="To Score" action={() => user.changePage("score")} classes="btn btn-primary" />
-        <Button name="To User info" action={() => user.changePage("user-info")} classes="btn btn-primary" />
+      <div className="d-grid gap-4 mt-5">
+        <Button name="Kviz" action={() => user.changePage("user-info")} classes="btn btn-light" />
+        <Button name="Rang lista" action={() => user.changePage("score")} classes="btn btn-light" />
       </div>
     </>
   );
