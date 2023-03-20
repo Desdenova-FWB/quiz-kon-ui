@@ -9,7 +9,7 @@ export interface IScoreTable {
 
 const ScoreTable : React.FunctionComponent<IScoreTable> = ({results, classes}) =>{
 
-    const classNames = ['table table-striped table-hover table-bordered', classes ?? ''].join(' ');
+    const classNames = ['table table-hover table-bordered', classes ?? ''].join(' ');
 
     return (
         <div>

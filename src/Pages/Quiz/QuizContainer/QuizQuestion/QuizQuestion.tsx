@@ -7,7 +7,7 @@ export interface IQuizQuestion{
 
 const QuizQuestion:React.FunctionComponent<IQuizQuestion> = ({questionText}) =>{
 return(
-    <h6>{questionText}</h6>
+    <h6 className="text-white text-start">{questionText}</h6>
 )
 }
 export default QuizQuestion;

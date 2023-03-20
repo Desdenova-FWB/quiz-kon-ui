@@ -7,14 +7,15 @@ import QuizReady from "./QuizReady/QuizReady";
 import QuizResult from "./QuizResult/QuizResult";
 import axios from "axios";
 import _Global from "../../Utils/globalProps";
+import { testQuizzQuestion } from "../../Utils/testQuizzQuestions";
 export interface IQuiz {
     user:IStudent
 }
 
 const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
 
-    const [qestions, setQuestions] = useState([])
-    const [isQuizzActive, setIsQuizzActive] = useState(false)
+    const [qestions, setQuestions] = useState(testQuizzQuestion)
+    const [isQuizzActive, setIsQuizzActive] = useState(true)
     const [startTime, setStartTime] = useState(Date.now)
     const [isQuizzFinished, setIsQuizzFinished] = useState(false)
 
@@ -26,10 +27,11 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
         Student.setScoreAndTime(score,(Date.now()-startTime)/1000)
         if (!Student.isSubmitted){
             console.log(Student._id)
-            axios.patch(`${_Global.BE_URL}/userResult/update/${Student._id}`,{...Student}).then(()=>{
-                setIsQuizzFinished(true);
-                Student.toggleIsSubmitted();
-            })
+            // axios.patch(`${_Global.BE_URL}/userResult/update/${Student._id}`,{...Student}).then(()=>{
+            //     setIsQuizzFinished(true);
+            //     Student.toggleIsSubmitted();
+            // })
+            setIsQuizzFinished(true);
         } else{
             setIsQuizzFinished(true);
         }
@@ -44,7 +46,6 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
 
     return (
     <>
-        <h1 className="mb-5">Sample Quiz</h1>
         <div>
             { !isQuizzActive && !isQuizzFinished && <QuizReady onAction={ async () => onStart() } />}
         </div>

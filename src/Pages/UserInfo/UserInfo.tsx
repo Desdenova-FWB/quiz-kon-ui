@@ -18,10 +18,10 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
 
   const submit = () => {
     console.log("point");
-    axios.post(`${_Global.BE_URL}/userResult/create/`,{ name: name, email: email, tel: tel}).then((res)=>{
-      Student.editUser({ ...res.data.userResult, page: "quiz" });
-  })
-
+    // axios.post(`${_Global.BE_URL}/userResult/create/`,{ name: name, email: email, tel: tel}).then((res)=>{
+    //   Student.editUser({ ...res.data.userResult, page: "quiz" });
+    // });
+    Student.changePage("quiz");
   };
   useEffect(() => {
     if (name !== "" && email !== "" && tel !== "") setCanSubmit(true);
@@ -40,6 +40,8 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
         <Input name="E-mail" value={email} type="email" action={setEmail} />
         <Input name="Kontakt telefon" type="number" value={tel} action={setTel} />
       </form>
+
+      <p className="mb-3 text-white">Svi lični podaci biće korišćeni u svrhu najave događaja u kompaniji TIAC.</p>
 
       <div className="d-grid gap-2">
         <Button

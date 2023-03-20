@@ -10,21 +10,18 @@ export interface IScoreTableItem extends IBaseUser {
 
 
 
-const ScoreTableItem : React.FunctionComponent<IScoreTableItem> = ({name,email,score,time})=>{
+const ScoreTableItem : React.FunctionComponent<IScoreTableItem> = ({__id,name,email,score,time})=>{
     return(
         <Fragment>
         <tr>
             <td>
-                {name}
+                {__id}
             </td> 
-            <td>
+            <td className="table-cell-email">
                 {email}
             </td> 
             <td>
-                {score}
-            </td> 
-            <td>
-                {time}
+                {score} [{time}s]
             </td> 
         </tr>
         </Fragment>

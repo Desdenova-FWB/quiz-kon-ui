@@ -15,12 +15,11 @@ const QuizHeader: React.FunctionComponent<IQuizHeader> = ({startTime,questionCou
         setCurrentTime((Date.now()-startTime)/1000)
     }
 
-
     setInterval(updateTime,100)
     return (
         <div>
-            <div>{currentTime.toFixed(2)}</div>
-            <span>{questionCounter}/{amountOfQuestions}</span>
+            <div className="text-white float-end fw-bold">{currentTime.toFixed(2)}</div>
+            <span className="text-white float-start fw-bold">{questionCounter}/{amountOfQuestions}</span>
         </div>
     )
 }

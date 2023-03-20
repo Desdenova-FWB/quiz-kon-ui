@@ -65,7 +65,8 @@ body {
 
   &:disabled,
   &.disabled,
-  &:active {
+  &:active,
+  &:hover {
     color: #951414 !important;
   }
 }

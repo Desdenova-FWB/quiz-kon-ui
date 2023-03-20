@@ -2,3 +2,29 @@
 .hideButton{
     display: none;
 }
+
+.title {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: -25px;
+}
+
+.custom-table > thead > tr > th {
+    color: #951414;
+}
+
+.custom-table {
+    & thead, & tbody,  & tfoot, & tr, & td, & th {
+        border-color: #951414;
+        background: white;
+    }
+}
+
+.custom-table .table-cell-email {
+    max-width: 200px;
+    min-width: 200px;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+}

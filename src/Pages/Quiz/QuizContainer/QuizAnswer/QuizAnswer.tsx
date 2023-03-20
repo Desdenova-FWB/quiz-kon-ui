@@ -13,7 +13,7 @@ const QuizAnswer: React.FunctionComponent<IQuizAnser> = ({
   onAction,
 }) => {
   return (
-    <Button name={answerText} action={() => onAction(isCorrect)} classes="btn btn-primary"/>
+    <Button name={answerText} action={() => onAction(isCorrect)} classes="btn btn-light"/>
   );
 };
 export default QuizAnswer;

@@ -6,18 +6,9 @@ const ScoreTableHeader: React.FunctionComponent = () =>{
 
     return(
         <tr>
-            <th>
-                Igrac
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Rezltat
-            </th>
-            <th>
-                Vreme [s]
-            </th>
+            <th>#</th>
+            <th className="table-cell-email">E-mail</th>
+            <th>Rezultat</th>
         </tr>
     )
 

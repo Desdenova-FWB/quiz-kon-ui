@@ -7,6 +7,8 @@ import QuizHeader from "./QuizHeader/QuizHeader";
 import Student from "../../../Store/User";
 import { observer } from "mobx-react";
 
+import tiacLogo from "../../../assets/img/logo/tiac_white_640_hor.png";
+
 interface IQuizContainer {
   onAction: (points: number) => {};
   questions: IquizzQuestion[]
@@ -45,12 +47,18 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
 
 
   return (
-    <div className={[getRandomType(), 'card quiz-question-card'].join(' ')}>
+    <>
+      <div className="small-logo">
+        <img src={tiacLogo}></img>
+      </div>
+
+      <h1 className="title text-white">Kviz</h1>
+
       <QuizHeader startTime={startTime} questionCounter={questionCounter+1} amountOfQuestions={questions.length} />
-      <div className="question-logo"></div>
-      <div className="card-body">
+      
+      <div className="mt-5">
         <QuizQuestion questionText={currentQuestion.questionText} />
-        <div className="d-grid gap-2 mt-5 mb-5">
+        <div className="d-grid gap-4 mt-5 mb-5">
           {currentQuestion.answers.map((answer) => {
             return (
               <QuizAnswer
@@ -64,7 +72,7 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
           })}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default observer(QuizContainer);
