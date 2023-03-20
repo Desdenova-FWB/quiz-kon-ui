@@ -2,15 +2,27 @@ import React from "react"
 import Button from "../../../Common/Button/Button";
 import Student from "../../../Store/User";
 
-const QuizResult : React.FunctionComponent = () =>{
+import tiacLogo from "../../../assets/img/logo/tiac_white_640_hor.png";
+
+import "./index.scss";
+
+const QuizResult : React.FunctionComponent = () => {
     return(
-        <div>
-            <h6>{Student.getScoreAndTime()}</h6>
+        <>
+            <div className="small-logo">
+                <img src={tiacLogo}></img>
+            </div>
+
+            <h1 className="title text-white mb-5">Tvoj rezultat</h1>
+
+            <h1 className="text-white mt-3 text-start ms-5">Broj tačnih odgovora: {Student.getScore()}</h1>
+
+            <h1 className="text-white text-start ms-5">Vreme: {Student.getTime()}</h1>
 
             <div className="d-grid gap-2 mt-5">
-                <Button name="Go to score" action={()=>Student.changePage("score")} classes="btn btn-primary"/> 
+                <Button name="Rang lista" action={()=>Student.changePage("score")} classes="btn btn-light"/> 
             </div>
-        </div>
+        </>
     )
 }
  export default QuizResult;

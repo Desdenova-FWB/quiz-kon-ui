@@ -27,11 +27,10 @@ const Quiz : React.FunctionComponent<IQuiz> = ({user})=>{
         Student.setScoreAndTime(score,(Date.now()-startTime)/1000)
         if (!Student.isSubmitted){
             console.log(Student._id)
-            // axios.patch(`${_Global.BE_URL}/userResult/update/${Student._id}`,{...Student}).then(()=>{
-            //     setIsQuizzFinished(true);
-            //     Student.toggleIsSubmitted();
-            // })
-            setIsQuizzFinished(true);
+            axios.patch(`${_Global.BE_URL}/userResult/update/${Student._id}`,{...Student}).then(()=>{
+                setIsQuizzFinished(true);
+                Student.toggleIsSubmitted();
+            })
         } else{
             setIsQuizzFinished(true);
         }

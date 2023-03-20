@@ -68,6 +68,12 @@ class UserStore {
     getScoreAndTime(){
         return `Score:"${this.score} in ${this.time} sec!`
     }
+    getScore(){
+        return this.score;
+    }
+    getTime(){
+        return this.time;
+    }
     toggleIsSubmitted(){
         this.isSubmitted = !this.isSubmitted
     }

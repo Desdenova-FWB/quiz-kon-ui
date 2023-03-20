@@ -18,10 +18,9 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
 
   const submit = () => {
     console.log("point");
-    // axios.post(`${_Global.BE_URL}/userResult/create/`,{ name: name, email: email, tel: tel}).then((res)=>{
-    //   Student.editUser({ ...res.data.userResult, page: "quiz" });
-    // });
-    Student.changePage("quiz");
+    axios.post(`${_Global.BE_URL}/userResult/create/`,{ name: name, email: email, tel: tel}).then((res)=>{
+      Student.editUser({ ...res.data.userResult, page: "quiz" });
+    });
   };
   useEffect(() => {
     if (name !== "" && email !== "" && tel !== "") setCanSubmit(true);
