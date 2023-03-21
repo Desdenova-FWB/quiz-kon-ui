@@ -34,16 +34,7 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
         tel: tel,
       })
       .then((res) => {
-        let retval :IUser= {
-          _id: "",
-          page: "",
-          tel: "",
-          name: "",
-          email: ""
-        }
-        retval = res.data.existingUser?res.data.existingUser:res.data.userResult ;
-
-        Student.editUser({ ...retval, page: "quiz" });
+        Student.editUser({ ...res.data, page: "quiz" });
       });
   };
   useEffect(() => {
