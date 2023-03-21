@@ -28,6 +28,7 @@ body {
 .full-height {
   position: relative;
   height: calc(100vh - 48px);
+  overflow: auto;
 }
 
 .form-control:focus {

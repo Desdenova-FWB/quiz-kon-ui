@@ -44,7 +44,7 @@ const Score: React.FunctionComponent<IScore> = ({ user }) => {
 
       <ScoreTable results={result} classes="mt-1 custom-table" />
 
-      <div className="d-grid gap-2">
+      <div className="d-grid gap-2 mb-5">
         <Button
           name={user.isActive ? "Ponovi kviz" : "Probaj kviz"}
           action={() => user.changePage(user.isActive ? "quiz" : "user-info")}
