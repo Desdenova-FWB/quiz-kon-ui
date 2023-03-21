@@ -3,7 +3,7 @@ import { observer } from "mobx-react";
 import React, { useEffect, useState } from "react";
 import Button from "../../Common/Button/Button";
 import Input from "../../Common/Input/Input";
-import Student from "../../Store/User";
+import Student, { IUser } from "../../Store/User";
 import _Global from "../../Utils/globalProps";
 
 import "./index.scss";
@@ -34,7 +34,16 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
         tel: tel,
       })
       .then((res) => {
-        Student.editUser({ ...res.data, page: "quiz" });
+        let retval :IUser= {
+          _id: "",
+          page: "",
+          tel: "",
+          name: "",
+          email: ""
+        }
+        retval = res.data.existingUser?res.data.existingUser:res.data.userResult ;
+
+        Student.editUser({ ...retval, page: "quiz" });
       });
   };
   useEffect(() => {
