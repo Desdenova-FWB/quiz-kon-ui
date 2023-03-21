@@ -14,7 +14,7 @@ export interface IScore {
 }
 
 const Score: React.FunctionComponent<IScore> = ({ user }) => {
-  const [result, setResult] = useState(rezultList);
+  const [result, setResult] = useState([]);
   const update = () => {
     axios
       .post(`${_Global.BE_URL}/userResult/getSortedUserResults/`, {
