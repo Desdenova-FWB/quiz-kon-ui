@@ -34,7 +34,7 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
         tel: tel,
       })
       .then((res) => {
-        Student.editUser({ ...res.data.retval, page: "quiz" });
+        Student.editUser({ ...res.data, page: "quiz" });
       });
   };
   useEffect(() => {
