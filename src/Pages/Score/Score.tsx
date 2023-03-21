@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "../../Common/Button/Button";
 import { IStudent } from "../../Store/User";
-import { rezultList } from "../../Utils/testRezults";
 import "./index.scss";
 import ScoreTable from "./ScoreTable/ScoreTable";
 import _Global from "../../Utils/globalProps";
@@ -14,7 +13,7 @@ export interface IScore {
 }
 
 const Score: React.FunctionComponent<IScore> = ({ user }) => {
-  const [result, setResult] = useState(rezultList);
+  const [result, setResult] = useState([]);
   const update = () => {
     axios
       .post(`${_Global.BE_URL}/userResult/getSortedUserResults/`, {
