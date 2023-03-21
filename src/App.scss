@@ -1,5 +1,29 @@
+@font-face {
+  font-family: 'Montserrat-Regular', sans-serif;
+  src: url("./assets/fonts/montserrat/Montserrat-Black.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-BlackItalic.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-Bold.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-BoldItalic.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-ExtraBold.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-ExtraBoldItalic.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-ExtraLight.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-ExtraLightItalic.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-Italic.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-Light.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-LightItalic.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-Medium.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-MediumItalic.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-Regular.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-SemiBold.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-SemiBoldItalic.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-Thin.ttf") format("woff2"),
+      url("./assets/fonts/montserrat/Montserrat-ThinItalic.ttf") format("woff2");
+  font-display: swap;
+}
+
 body {
   color: #231F20;
+  font-family: 'Montserrat-Regular', sans-serif;
 }
 
 #footer {

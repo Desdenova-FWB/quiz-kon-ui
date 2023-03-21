@@ -45,22 +45,22 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
   const validate = () => {
     let valid = true;
 
-    // if (name === "" || name.split(" ").length < 2) {
-    //   setNameError(true);
-    //   valid = false;
-    // } else {
-    //   setNameError(false);
-    // }
+    if (name === "" || name.split(" ").length < 2) {
+      setNameError(true);
+      valid = false;
+    } else {
+      setNameError(false);
+    }
 
-    // if (
-    //   email === "" ||
-    //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)
-    // ) {
-    //   setEmailError(true);
-    //   valid = false;
-    // } else {
-    //   setEmailError(false);
-    // }
+    if (
+      email === "" ||
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)
+    ) {
+      setEmailError(true);
+      valid = false;
+    } else {
+      setEmailError(false);
+    }
 
     return valid;
   };

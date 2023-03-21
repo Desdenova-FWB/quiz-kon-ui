@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client';
 import Application from './Application';
 import reportWebVitals from './reportWebVitals';
 
+import websiteImage from './assets/img/footer/icons8-website-64.png';
+import linkedinImage from './assets/img/footer/icons8-linkedin-64.png';
+import instagramImage from './assets/img/footer/icons8-instagram-64.png';
+import facebookImage from './assets/img/footer/icons8-facebook-64.png';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.scss';
 
@@ -19,16 +24,16 @@ root.render(
       </div>
       <div id="footer">
         <a href="http://www.tiacgroup.com/" target="_blank">
-          <img src="http://www.tiacgroup.com/wp-content/uploads/2022/09/icons8-website-64.png" alt="web" width="32" height="32"></img>
+          <img src={websiteImage} alt="web" width="32" height="32"></img>
         </a>
         <a href="https://www.linkedin.com/company/tiac-d-o-o-/" target="_blank">
-          <img src="http://www.tiacgroup.com/wp-content/uploads/2022/09/icons8-linkedin-64.png" alt="linkedin" width="32" height="32"></img>
+          <img src={linkedinImage} alt="linkedin" width="32" height="32"></img>
         </a>
         <a href="https://www.instagram.com/tiac.group/" target="_blank">
-          <img src="http://www.tiacgroup.com/wp-content/uploads/2022/09/icons8-instagram-64.png" alt="instagram" width="32" height="32"></img>
+          <img src={instagramImage} alt="instagram" width="32" height="32"></img>
         </a>
         <a href="https://www.facebook.com/TIACgroup" target="_blank">
-          <img src="http://www.tiacgroup.com/wp-content/uploads/2022/09/icons8-facebook-64.png" alt="facebook" width="32" height="32"></img>
+          <img src={facebookImage} alt="facebook" width="32" height="32"></img>
         </a>
       </div>
     </div>
