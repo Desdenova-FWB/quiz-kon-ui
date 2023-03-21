@@ -1,5 +1,5 @@
-import React, {useState, useEffect } from "react";
-import axios from "axios"
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Button from "../../Common/Button/Button";
 import { IStudent } from "../../Store/User";
 import { rezultList } from "../../Utils/testRezults";
@@ -14,14 +14,17 @@ export interface IScore {
 }
 
 const Score: React.FunctionComponent<IScore> = ({ user }) => {
-
-const [result, setResult]=  useState(rezultList);
-const update = ()=>{
-  axios.post(`${_Global.BE_URL}/userResult/getSortedUserResults/`,{topResults:_Global.TOP_RESULTS}).then((response)=>{
-      setResult(response.data.userResults)
-  })
-}
-  useEffect(()=>update(),[])
+  const [result, setResult] = useState(rezultList);
+  const update = () => {
+    axios
+      .post(`${_Global.BE_URL}/userResult/getSortedUserResults/`, {
+        topResults: _Global.TOP_RESULTS,
+      })
+      .then((response) => {
+        setResult(response.data.userResults);
+      });
+  };
+  useEffect(() => update(), []);
 
   return (
     <>
@@ -36,14 +39,15 @@ const update = ()=>{
         action={update}
         classes="float-end mb-2"
         isIcon={true}
-        icon="bi bi-arrow-clockwise"/>
+        icon="bi bi-arrow-clockwise"
+      />
 
       <ScoreTable results={result} classes="mt-1 custom-table" />
 
       <div className="d-grid gap-2">
         <Button
           name={user.isActive ? "Ponovi kviz" : "Probaj kviz"}
-          action={() =>  user.changePage(user.isActive ? "quiz" : "user-info")}
+          action={() => user.changePage(user.isActive ? "quiz" : "user-info")}
           classes="btn btn-light"
         />
       </div>
