@@ -1,6 +1,8 @@
 body {
   color: #231F20;
   font-family: 'Montserrat', sans-serif;
+
+  background-color: #ddd;
 }
 
 #footer {
@@ -87,7 +89,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  filter: brightness(50%);
+  filter: brightness(60%);
   content: '';
 
   -webkit-animation-name: backgroundImage;
@@ -101,6 +103,8 @@ body {
   background-position: center;
 
   margin-left: -12px;
+
+  background-color: #f8f8f8;
 }
 
 @-webkit-keyframes backgroundImage {
