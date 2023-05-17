@@ -7,7 +7,7 @@ import QuizHeader from "./QuizHeader/QuizHeader";
 import Student from "../../../Store/User";
 import { observer } from "mobx-react";
 
-import tiacLogo from "../../../assets/img/logo/tiac_white_640_hor.png";
+import logo from "../../../assets/img/logo/tiac_mi_logo_h.png";
 
 interface IQuizContainer {
   onAction: (points: number) => {};
@@ -27,8 +27,13 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
   );
 
   const action = (isCorrect: boolean) => {
-    if (questions.length - 1 === questionCounter) {
-      onAction(answerCounter);
+    if (questions.length -1 === questionCounter) {
+      if (isCorrect) {
+        onAction(answerCounter + 1);
+      }
+      else{
+        onAction(answerCounter);
+      }
     } else {
       if (isCorrect) {
         setAnswerCounter(answerCounter + 1);
@@ -49,10 +54,10 @@ const QuizContainer: React.FunctionComponent<IQuizContainer> = ({
   return (
     <>
       <div className="small-logo">
-        <img src={tiacLogo}></img>
+        <img src={logo}></img>
       </div>
 
-      <h1 className="title text-white">Kviz</h1>
+      <h1 className="title text-white mt-4">Kviz</h1>
 
       <QuizHeader startTime={startTime} questionCounter={questionCounter+1} amountOfQuestions={questions.length} />
       

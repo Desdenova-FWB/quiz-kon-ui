@@ -21,6 +21,6 @@ const Button: React.FunctionComponent<IButton> = ({name,isHidden = false,isActiv
         )
     }
 
-    return <span className={classes} onClick={()=>action()}><ArrowClockwise fontSize={45} color="white" /></span>
+    return <span className={classes} onClick={()=>action()}><ArrowClockwise fontSize={37} color="white" /></span>
 }
 export default Button

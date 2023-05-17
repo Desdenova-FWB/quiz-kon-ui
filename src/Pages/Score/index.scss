@@ -10,12 +10,12 @@
 }
 
 .custom-table > thead > tr > th {
-    color: #951414;
+    color: #252525;
 }
 
 .custom-table {
     & thead, & tbody,  & tfoot, & tr, & td, & th {
-        border-color: #951414;
+        border-color: #252525;
         background: white;
     }
 }
@@ -27,4 +27,20 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow-x: hidden;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.refresh {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.score-content {
+    margin-top: 10vh;
 }

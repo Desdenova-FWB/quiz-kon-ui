@@ -8,7 +8,7 @@ import _Global from "../../Utils/globalProps";
 
 import "./index.scss";
 
-import tiacLogo from "../../assets/img/logo/tiac_white_640_hor.png";
+import logo from "../../assets/img/logo/tiac_mi_logo_h.png";
 
 export interface IUserInfo {}
 
@@ -37,10 +37,12 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
         Student.editUser({ ...res.data, page: "quiz" });
       });
   };
+
   useEffect(() => {
-    const valid = validate();
-    setCanSubmit(valid);
-  }, [name, email, tel, canSubmit]);
+    if(name !== "" && email !== ""){
+      setCanSubmit(true);
+    }
+  }, [name, email, tel]);
 
   const validate = () => {
     let valid = true;
@@ -67,14 +69,14 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
   return (
     <>
       <div className="small-logo">
-        <img src={tiacLogo}></img>
+        <img src={logo}></img>
       </div>
 
-      <p className="mb-5 text-white">
+      <p className="text-white mt-5">
         Upiši svoje podatke kako bi započeo kviz.
       </p>
 
-      <form className="mt-5">
+      <form className="">
         <Input name="Ime i prezime" value={name} type="text" action={setName} />
         {nameError && (
           <div className="invalid-feedback mb-1">

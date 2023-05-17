@@ -26,20 +26,6 @@ root.render(
           <Application/>
         </div>
       </div>
-      <div id="footer">
-        <a href="http://www.tiacgroup.com/" target="_blank">
-          <img src={websiteImage} alt="web" width="32" height="32"></img>
-        </a>
-        <a href="https://www.linkedin.com/company/tiac-d-o-o-/" target="_blank">
-          <img src={linkedinImage} alt="linkedin" width="32" height="32"></img>
-        </a>
-        <a href="https://www.instagram.com/tiac.group/" target="_blank">
-          <img src={instagramImage} alt="instagram" width="32" height="32"></img>
-        </a>
-        <a href="https://www.facebook.com/TIACgroup" target="_blank">
-          <img src={facebookImage} alt="facebook" width="32" height="32"></img>
-        </a>
-      </div>
     </div>
   </React.StrictMode>
 );
