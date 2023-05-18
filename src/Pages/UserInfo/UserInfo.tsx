@@ -100,8 +100,8 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
       </form>
 
       <p className="mb-3 text-white">
-        Svi lični podaci biće korišćeni u svrhu najave događaja u kompaniji
-        TIAC.
+        Svi lični podaci biće korišćeni u svrhu najave događaja u kompanijama
+        TIAC i M&I Systems Group.
       </p>
 
       <div className="d-grid gap-2">
