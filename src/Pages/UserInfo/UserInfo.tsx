@@ -9,6 +9,7 @@ import _Global from "../../Utils/globalProps";
 import "./index.scss";
 
 import logo from "../../assets/img/logo/tiac_mi_logo_h.png";
+import { error } from "console";
 
 export interface IUserInfo {}
 
@@ -19,7 +20,8 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
   const [canSubmit, setCanSubmit] = useState(false);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
-
+  const [playedAlready, setPlayedAlready] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("");
   const submit = () => {
     const valid = validate();
 
@@ -35,8 +37,12 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
       })
       .then((res) => {
         Student.editUser({ ...res.data, page: "quiz" });
+      }).catch((error) => {
+        setPlayedAlready(true);
+        setErrorMessage(error.response.data);
       });
   };
+
 
   useEffect(() => {
     if(name !== "" && email !== ""){
@@ -75,6 +81,8 @@ const UserInfo: React.FunctionComponent<IUserInfo> = (props) => {
       <p className="text-white mt-5">
         Upiši svoje podatke kako bi započeo kviz.
       </p>
+
+      {playedAlready ? <p style={{color: "red", fontWeight: "600"}}>{errorMessage}</p> : null}
 
       <form className="">
         <Input name="Ime i prezime" value={name} type="text" action={setName} />
